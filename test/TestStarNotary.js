@@ -47,3 +47,10 @@ it('can change owners', async () => {
     let secondOwner = await instance.starOwner.call();
     assert.equal(secondOwner, secondUser);
 });
+
+it('can change star name', async () => {
+    let instance = await StarNotary.deployed();
+    await instance.changeName("Tanin's Star");
+    let starName = await instance.starName.call();
+    assert.equal(starName, "Tanin's Star");
+});
